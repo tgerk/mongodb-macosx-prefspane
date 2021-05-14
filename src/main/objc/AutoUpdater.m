@@ -8,6 +8,7 @@
 
 #import "AutoUpdater.h"
 #import "Helpers+Private.h"
+#import "NSString+Log.h"
 
 enum AutoUpdateSteps 
 {

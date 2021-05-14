@@ -59,7 +59,7 @@
     else
         [self _setProcessAsStopped];
     
-    [self.instanceAutomaticStartButton setState:[Helpers isLaunchdInstalled]];
+    [self.instanceAutomaticStartButton setState:[Helpers isAutomaticStartupInstalled]];
     [self._autoUpdater checkForUpdate];
 }
 
@@ -86,11 +86,11 @@
 - (IBAction)onAutomaticStartButtonPushed:(id)sender
 {
     if (self.instanceAutomaticStartButton.state) {
-        if ([Helpers installLaunchd] == YES)
-            [self.instanceAutomaticStartButton setState:[Helpers isLaunchdInstalled]];
+        if ([Helpers installAutomaticStartup] == YES)
+            [self.instanceAutomaticStartButton setState:[Helpers isAutomaticStartupInstalled]];
     } else {
-        if ([Helpers uninstallLaunchd] == YES)
-            [self.instanceAutomaticStartButton setState:[Helpers isLaunchdInstalled]];
+        if ([Helpers uninstallAutomaticStartup] == YES)
+            [self.instanceAutomaticStartButton setState:[Helpers isAutomaticStartupInstalled]];
     }
     if ([Helpers isProcessRunning] == YES)
         [self _setProcessAsStarted];

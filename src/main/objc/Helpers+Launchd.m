@@ -8,6 +8,7 @@
 
 #import "Helpers+Private.h"
 #import "Helpers+Launchd.h"
+#import "NSString+Log.h"
 
 @implementation Helpers (Launchd)
 

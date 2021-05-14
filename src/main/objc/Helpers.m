@@ -8,7 +8,7 @@
 
 #import "Helpers.h"
 #import "Helpers+Private.h"
-#import "Helpers+Mongod.h"
+#import "Helpers+Process.h"
 #import "Helpers+Launchd.h"
 
 #pragma mark - Public implementation.
@@ -22,7 +22,7 @@
     if ([Helpers isAutomaticStartupInstalled] == YES)
         return [Helpers _startProcessWithAutomaticStartup];
     else
-        return [Helpers _startMongodProcess];
+        return [Helpers _startProcess];
 }
 
 + (BOOL)stopProcess
@@ -30,7 +30,7 @@
     if ([Helpers isAutomaticStartupInstalled] == YES)
         return [Helpers _stopProcessWithAutomaticStartup];
     else
-        return [Helpers _stopMongodProcess];
+        return [Helpers _stopProcess];
 }
 
 + (BOOL)isProcessRunning
@@ -57,7 +57,7 @@
 {
     BOOL wasRunning = [Helpers isProcessRunning];
     if (wasRunning == YES)
-        [Helpers _stopMongodProcess];
+        [Helpers _stopProcess];
     BOOL isInstalled = [Helpers _installLaunchd];
     if (wasRunning == YES)
         [Helpers startProcess];
